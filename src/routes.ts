@@ -8,6 +8,7 @@ import openaiRouter from "./features/openAi/routes/openai.routes";
 const router = Router();
 
 router.use('/', apiRouter);
+router.use('/api', apiRouter);
 router.use('/api/v1/user', userRouter);
 router.use("/api/v1/openai", openaiRouter);
 router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

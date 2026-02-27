@@ -1,5 +1,8 @@
 import { RequestHandler } from "express";
 
+const baseUrl = process.env.OLLAMA_BASE_URL || "http://localhost:11434";
+const model = process.env.OLLAMA_MODEL || "gemma2:2b";
+
 type ChatBody = { message: string };
 
 const chat: RequestHandler = async (req, res) => {
@@ -10,9 +13,6 @@ const chat: RequestHandler = async (req, res) => {
       res.status(400).json({ status: "ERROR", message: "message is required" });
       return;
     }
-
-    const baseUrl = process.env.OLLAMA_BASE_URL || "http://localhost:11434";
-    const model = process.env.OLLAMA_MODEL || "gemma2:2b";
 
     const r = await fetch(`${baseUrl}/api/chat`, {
       method: "POST",
