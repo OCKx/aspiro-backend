@@ -2,10 +2,10 @@ import { Router } from "express";
 
 const apiRouter = Router();
 
-apiRouter.get('/', (req, res) => {
-    res.status(200).json({
-        name: "OCKX Express Temp"
-    })
+apiRouter.get("/", (req, res) => {
+  res.status(200).json({
+    name: "Aspiro API",
+  });
 });
 
 apiRouter.get("/health", (req, res) => {
@@ -15,6 +15,5 @@ apiRouter.get("/health", (req, res) => {
     uptime: process.uptime(),
   });
 });
-
 
 export default apiRouter;
